@@ -155,11 +155,14 @@ class Attachment extends Payload
     ];
 
     /**
-     * Class name of valid fields.
+     * Get the class name of valid fields.
      *
-     * @var string
+     * @return string
      */
-    protected static $fieldClass = AttachmentField::class;
+    protected function getFieldClass()
+    {
+        return AttachmentField::class;
+    }
 
     /**
      * Get the fallback text.

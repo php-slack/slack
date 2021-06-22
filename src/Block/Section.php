@@ -53,11 +53,14 @@ class Section extends Block
     ];
 
     /**
-     * Class name of valid fields.
+     * Get the class name of valid fields.
      *
-     * @var string
+     * @return string
      */
-    protected static $fieldClass = Text::class;
+    protected function getFieldClass()
+    {
+        return Text::class;
+    }
 
     /**
      * Get the section text.
@@ -96,7 +99,7 @@ class Section extends Block
      */
     public function addField($field)
     {
-        $field = static::$fieldClass::create($field);
+        $field = $this->getFieldClass()::create($field);
 
         $this->fields[] = $field;
 

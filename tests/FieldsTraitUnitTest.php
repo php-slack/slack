@@ -131,7 +131,11 @@ class FieldsTraitUnitTest extends TestCase
 class FieldsMock
 {
     use FieldsTrait;
-    protected static $fieldClass = AttachmentField::class;
+
+    protected function getFieldClass()
+    {
+        return AttachmentField::class;
+    }
 
     public function mockGetFieldsAsArrays()
     {

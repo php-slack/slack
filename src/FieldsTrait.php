@@ -13,6 +13,13 @@ trait FieldsTrait
     protected $fields = [];
 
     /**
+     * Get the class name of valid fields.
+     *
+     * @return string
+     */
+    abstract protected function getFieldClass();
+
+    /**
      * Get the fields for the block/attachment.
      *
      * @return \Maknz\Slack\Field[]|array
@@ -53,17 +60,19 @@ trait FieldsTrait
      */
     public function addField($field)
     {
-        if ($field instanceof static::$fieldClass) {
+        $fieldClass = $this->getFieldClass();
+
+        if ($field instanceof $fieldClass) {
             $this->fields[] = $field;
 
             return $this;
         } elseif (is_array($field)) {
-            $this->fields[] = new static::$fieldClass($field);
+            $this->fields[] = new $fieldClass($field);
 
             return $this;
         }
 
-        throw new InvalidArgumentException('The field must be an instance of '.static::$fieldClass.' or a keyed array');
+        throw new InvalidArgumentException('The field must be an instance of '.$fieldClass.' or a keyed array');
     }
 
     /**
