@@ -430,7 +430,7 @@ class Client
      */
     public function createMessage()
     {
-        $message = new Message($this);
+        $message = new Message();
 
         $message->setChannel($this->getDefaultChannel());
 
