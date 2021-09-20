@@ -472,7 +472,7 @@ class Client
             throw new RuntimeException(sprintf('JSON encoding error %s: %s', json_last_error(), json_last_error_msg()));
         }
 
-        $this->guzzle->post($this->endpoint, ['body' => $encoded]);
+        $this->guzzle->post($this->endpoint, ['json' => $encoded]);
     }
 
     /**
