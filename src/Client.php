@@ -476,7 +476,7 @@ class Client
             'headers' => [
                 'Content-Type' => 'application/json',
             ],
-            'body' => $encoded
+            'body' => $encoded,
         ]);
     }
 
