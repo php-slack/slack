@@ -123,7 +123,7 @@ class MultiConversationsSelect extends MultiDynamicSelect
      *
      * @return $this
      */
-    public function setDefaultToCurrentConveration($defaultToCurrentConversation)
+    public function setDefaultToCurrentConversation($defaultToCurrentConversation)
     {
         $this->default_to_current_conversation = (bool)$defaultToCurrentConversation;
 
@@ -148,7 +148,7 @@ class MultiConversationsSelect extends MultiDynamicSelect
         if ($this->getDefaultToCurrentConversation()) {
             $data['default_to_current_conversation'] = true;
         } elseif (count($initialConversations)) {
-            $data['initial_converstions'] = $initialConversations;
+            $data['initial_conversations'] = $initialConversations;
         }
 
         if ($this->getConfirm()) {

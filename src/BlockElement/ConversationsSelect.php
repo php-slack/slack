@@ -91,7 +91,7 @@ class ConversationsSelect extends RespondableSelect
      *
      * @return $this
      */
-    public function setDefaultToCurrentConveration($defaultToCurrentConversation)
+    public function setDefaultToCurrentConversation($defaultToCurrentConversation)
     {
         $this->default_to_current_conversation = (bool)$defaultToCurrentConversation;
 
@@ -113,9 +113,7 @@ class ConversationsSelect extends RespondableSelect
 
         if ($this->getInitialConversation()) {
             $data['initial_conversation'] = $this->getInitialConversation();
-        }
-
-        if ($this->getDefaultToCurrentConversation()) {
+        } elseif ($this->getDefaultToCurrentConversation()) {
             $data['default_to_current_conversation'] = true;
         }
 

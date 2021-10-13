@@ -88,7 +88,7 @@ class Filter extends CompositionObject
      *
      * @return $this
      */
-    public function setExcludeExternalSharedChannels($excludeSharedChannels = true)
+    public function setExcludeSharedChannels($excludeSharedChannels = true)
     {
         $this->exclude_shared_channels = (bool)$excludeSharedChannels;
 
