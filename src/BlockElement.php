@@ -18,20 +18,28 @@ abstract class BlockElement extends Payload
      * @var array
      */
     protected static $validFor = [
-        'button'              => ['Button',       ['section', 'actions']],
-        'checkboxes'          => ['Checkboxes',   ['section', 'actions', 'input']],
-        'datepicker'          => ['DatePicker',   ['section', 'actions', 'input']],
-        'timepicker'          => ['Timepicker',   ['section', 'actions', 'input']],
-        'image'               => ['Image',        ['section', 'context']],
-        'multi_static_select' => ['MultiSelect',  ['section', 'input']],
-        'overflow'            => ['Overflow',     ['section', 'actions']],
-        'plain_text_input'    => ['TextInput',    ['input']],
-        'radio_buttons'       => ['RadioButtons', ['section', 'actions', 'input']],
-        'static_select'       => ['Select',       ['section', 'actions', 'input']],
+        'button'                     => ['Button',                   ['section', 'actions']],
+        'checkboxes'                 => ['Checkboxes',               ['section', 'actions', 'input']],
+        'datepicker'                 => ['DatePicker',               ['section', 'actions', 'input']],
+        'timepicker'                 => ['Timepicker',               ['section', 'actions', 'input']],
+        'image'                      => ['Image',                    ['section', 'context']],
+        'multi_static_select'        => ['MultiSelect',              ['section', 'input']],
+        'multi_external_select'      => ['MultiExternalSelect',      ['section', 'input']],
+        'multi_users_select'         => ['MultiUsersSelect',         ['section', 'input']],
+        'multi_conversations_select' => ['MultiConversationsSelect', ['section', 'input']],
+        'multi_channels_select'      => ['MultiChannelsSelect',      ['section', 'input']],
+        'overflow'                   => ['Overflow',                 ['section', 'actions']],
+        'plain_text_input'           => ['TextInput',                ['input']],
+        'radio_buttons'              => ['RadioButtons',             ['section', 'actions', 'input']],
+        'static_select'              => ['Select',                   ['section', 'actions', 'input']],
+        'external_select'            => ['ExternalSelect',           ['section', 'actions', 'input']],
+        'users_select'               => ['UsersSelect',              ['section', 'actions', 'input']],
+        'conversations_select'       => ['ConversationsSelect',      ['section', 'actions', 'input']],
+        'channels_select'            => ['ChannelsSelect',           ['section', 'actions', 'input']],
 
         // Context Block allows a Text object to be used directly, so need to map types here
-        'plain_text'          => ['Text', ['context']],
-        'mrkdwn'              => ['Text', ['context']],
+        'plain_text' => ['Text', ['context']],
+        'mrkdwn'     => ['Text', ['context']],
     ];
 
     /**

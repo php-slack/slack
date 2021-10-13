@@ -1,10 +1,13 @@
 <?php
 namespace Maknz\Slack\BlockElement;
 
+use Maknz\Slack\MaxItemsTrait;
 use Maknz\Slack\Object\Option;
 
-class MultiSelect extends AbstractSelect
+class MultiSelect extends AbstractStaticSelect
 {
+    use MaxItemsTrait;
+
     /**
      * Block type.
      *

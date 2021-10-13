@@ -3,15 +3,11 @@ namespace Maknz\Slack\BlockElement;
 
 use InvalidArgumentException;
 use Maknz\Slack\Object\OptionGroup;
+use Maknz\Slack\PlaceholderTrait;
 
-abstract class AbstractSelect extends Options
+abstract class AbstractStaticSelect extends Options
 {
-    /**
-     * Select placeholder.
-     *
-     * @var \Maknz\Slack\BlockElement\Text
-     */
-    protected $placeholder;
+    use PlaceholderTrait;
 
     /**
      * Select option groups.
@@ -19,32 +15,6 @@ abstract class AbstractSelect extends Options
      * @var \Maknz\Slack\Object\OptionGroup[]
      */
     protected $option_groups = [];
-
-    /**
-     * Get the placeholder.
-     *
-     * @return \Maknz\Slack\BlockElement\Text
-     */
-    public function getPlaceholder()
-    {
-        return $this->placeholder;
-    }
-
-    /**
-     * Set the placeholder.
-     *
-     * @param mixed $placeholder
-     *
-     * @return $this
-     *
-     * @throws \InvalidArgumentException
-     */
-    public function setPlaceholder($placeholder)
-    {
-        $this->placeholder = Text::create($placeholder, Text::TYPE_PLAIN);
-
-        return $this;
-    }
 
     /**
      * Set options available within the block.

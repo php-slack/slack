@@ -2,22 +2,11 @@
 namespace Maknz\Slack\BlockElement;
 
 use DateTime;
+use Maknz\Slack\PlaceholderTrait;
 
 abstract class Temporalpicker extends Confirmable
 {
-    /**
-     * Action triggered when the date is selected.
-     *
-     * @var string
-     */
-    protected $action_id;
-
-    /**
-     * Placeholder shown on the date picker.
-     *
-     * @var \Maknz\Slack\BlockElement\Text
-     */
-    protected $placeholder;
+    use PlaceholderTrait;
 
     /**
      * Initial date to be selected.
@@ -27,57 +16,7 @@ abstract class Temporalpicker extends Confirmable
     protected $initial_value;
 
     /**
-     * Get the action.
-     *
-     * @return string
-     */
-    public function getActionId()
-    {
-        return $this->action_id;
-    }
-
-    /**
-     * Set the action.
-     *
-     * @param string $actionId
-     *
-     * @return $this
-     */
-    public function setActionId($actionId)
-    {
-        $this->action_id = $actionId;
-
-        return $this;
-    }
-
-    /**
-     * Get the placeholder.
-     *
-     * @return \Maknz\Slack\BlockElement\Text
-     */
-    public function getPlaceholder()
-    {
-        return $this->placeholder;
-    }
-
-    /**
-     * Set the placeholder.
-     *
-     * @param mixed $placeholder
-     *
-     * @return $this
-     *
-     * @throws \InvalidArgumentException
-     */
-    public function setPlaceholder($placeholder)
-    {
-        $this->placeholder = Text::create($placeholder, Text::TYPE_PLAIN);
-
-        return $this;
-    }
-
-    /**
-     * Get the initial date.
+     * Get the initial value.
      *
      * @return \DateTime
      */
@@ -87,7 +26,7 @@ abstract class Temporalpicker extends Confirmable
     }
 
     /**
-     * Set the initial date.
+     * Set the initial value.
      *
      * @param \DateTime $initialValue
      *

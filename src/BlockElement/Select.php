@@ -5,7 +5,7 @@ use InvalidArgumentException;
 use Maknz\Slack\Object\Option;
 use Maknz\Slack\Object\OptionGroup;
 
-class Select extends AbstractSelect
+class Select extends AbstractStaticSelect
 {
     /**
      * Block type.

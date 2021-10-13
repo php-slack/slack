@@ -22,13 +22,6 @@ class Button extends Confirmable
     protected $text;
 
     /**
-     * Button action.
-     *
-     * @var string
-     */
-    protected $action_id;
-
-    /**
      * Button URL.
      *
      * @var string
@@ -85,30 +78,6 @@ class Button extends Confirmable
     public function setText($text)
     {
         $this->text = Text::create($text, Text::TYPE_PLAIN);
-
-        return $this;
-    }
-
-    /**
-     * Get the button action.
-     *
-     * @return string
-     */
-    public function getActionId()
-    {
-        return $this->action_id;
-    }
-
-    /**
-     * Set the button action.
-     *
-     * @param string $actionId
-     *
-     * @return $this
-     */
-    public function setActionId($actionId)
-    {
-        $this->action_id = $actionId;
 
         return $this;
     }

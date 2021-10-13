@@ -3,9 +3,12 @@ namespace Maknz\Slack\BlockElement;
 
 use InvalidArgumentException;
 use Maknz\Slack\BlockElement;
+use Maknz\Slack\PlaceholderTrait;
 
 class TextInput extends BlockElement
 {
+    use PlaceholderTrait;
+
     /**
      * Block type.
      *
@@ -19,13 +22,6 @@ class TextInput extends BlockElement
      * @var string
      */
     protected $action_id;
-
-    /**
-     * Placeholder shown on the input.
-     *
-     * @var \Maknz\Slack\BlockElement\Text
-     */
-    protected $placeholder;
 
     /**
      * Input initial value.
@@ -56,7 +52,7 @@ class TextInput extends BlockElement
     protected $max_length;
 
     /**
-     * When the element should return its payload
+     * When the element should return its payload.
      *
      * @var string[]
      */
@@ -97,32 +93,6 @@ class TextInput extends BlockElement
     public function setActionId($actionId)
     {
         $this->action_id = $actionId;
-
-        return $this;
-    }
-
-    /**
-     * Get the placeholder.
-     *
-     * @return \Maknz\Slack\BlockElement\Text
-     */
-    public function getPlaceholder()
-    {
-        return $this->placeholder;
-    }
-
-    /**
-     * Set the placeholder.
-     *
-     * @param mixed $placeholder
-     *
-     * @return $this
-     *
-     * @throws \InvalidArgumentException
-     */
-    public function setPlaceholder($placeholder)
-    {
-        $this->placeholder = Text::create($placeholder, Text::TYPE_PLAIN);
 
         return $this;
     }
@@ -247,8 +217,8 @@ class TextInput extends BlockElement
         $validConfig = ['on_enter_pressed', 'on_character_entered'];
 
         foreach ($dispatchConfig as $config) {
-            if (!in_array($config, $validConfig)) {
-                throw new InvalidArgumentException("Invalid dispatch config '$config'; must be one of: " . implode(',', $validConfig));
+            if ( ! in_array($config, $validConfig)) {
+                throw new InvalidArgumentException("Invalid dispatch config '$config'; must be one of: ".implode(',', $validConfig));
             }
         }
 
