@@ -24,6 +24,7 @@ class BlockElementUnitTest extends TestCase
             ['button',              BlockElement\Button::class],
             ['checkboxes',          BlockElement\Checkboxes::class],
             ['datepicker',          BlockElement\DatePicker::class],
+            ['timepicker',          BlockElement\Timepicker::class],
             ['image',               BlockElement\Image::class],
             ['multi_static_select', BlockElement\MultiSelect::class],
             ['overflow',            BlockElement\Overflow::class],

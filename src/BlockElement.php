@@ -21,6 +21,7 @@ abstract class BlockElement extends Payload
         'button'              => ['Button',       ['section', 'actions']],
         'checkboxes'          => ['Checkboxes',   ['section', 'actions', 'input']],
         'datepicker'          => ['DatePicker',   ['section', 'actions', 'input']],
+        'timepicker'          => ['Timepicker',   ['section', 'actions', 'input']],
         'image'               => ['Image',        ['section', 'context']],
         'multi_static_select' => ['MultiSelect',  ['section', 'input']],
         'overflow'            => ['Overflow',     ['section', 'actions']],

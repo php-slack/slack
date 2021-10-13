@@ -2,46 +2,46 @@
 namespace Slack\Tests\BlockElement;
 
 use DateTime;
-use Maknz\Slack\BlockElement\DatePicker;
 use Maknz\Slack\BlockElement\Text;
+use Maknz\Slack\BlockElement\Timepicker;
 use Slack\Tests\TestCase;
 
-class DatePickerUnitTest extends TestCase
+class TimepickerUnitTest extends TestCase
 {
-    public function testDatePickerFromArray()
+    public function testTimepickerFromArray()
     {
-        $date = new DateTime('2020-01-01');
+        $time = new DateTime('12:28');
 
-        $d = new DatePicker([
-            'action_id'    => 'Date action',
-            'placeholder'  => 'Date placeholder',
-            'initial_date' => $date,
+        $t = new Timepicker([
+            'action_id'    => 'Time action',
+            'placeholder'  => 'Time placeholder',
+            'initial_time' => $time,
         ]);
 
-        $this->assertSame(Text::TYPE_PLAIN, $d->getPlaceholder()->getType());
+        $this->assertSame(Text::TYPE_PLAIN, $t->getPlaceholder()->getType());
 
-        $this->assertSame('Date placeholder', $d->getPlaceholder()->getText());
+        $this->assertSame('Time placeholder', $t->getPlaceholder()->getText());
 
-        $this->assertSame($date, $d->getInitialDate());
+        $this->assertSame($time, $t->getInitialTime());
     }
 
-    public function testSetInitialDate()
+    public function testSetInitialTime()
     {
-        $date = new DateTime('2020-01-01');
+        $time = new DateTime('12:28');
 
-        $d = new DatePicker([]);
-        $d->setInitialDate($date);
-        $this->assertSame($date, $d->getInitialDate());
+        $t = new Timepicker([]);
+        $t->setInitialTime($time);
+        $this->assertSame($time, $t->getInitialTime());
     }
 
     public function testToArray()
     {
-        $date = new DateTime('2020-01-01');
+        $time = new DateTime('12:28');
 
-        $d = new DatePicker([
-            'action_id'    => 'Date action',
-            'placeholder'  => 'Date placeholder',
-            'initial_date' => $date,
+        $t = new Timepicker([
+            'action_id'    => 'Time action',
+            'placeholder'  => 'Time placeholder',
+            'initial_time' => $time,
             'confirm'   => [
                 'title'   => 'Confirmation title',
                 'text'    => 'Confirmation text',
@@ -51,12 +51,12 @@ class DatePickerUnitTest extends TestCase
         ]);
 
         $out = [
-            'type' => 'datepicker',
-            'action_id' => 'Date action',
-            'initial_date' => '2020-01-01',
+            'type' => 'timepicker',
+            'action_id' => 'Time action',
+            'initial_time' => '12:28',
             'placeholder' => [
                 'type' => Text::TYPE_PLAIN,
-                'text' => 'Date placeholder',
+                'text' => 'Time placeholder',
                 'emoji' => false,
             ],
             'confirm'   => [
@@ -83,6 +83,6 @@ class DatePickerUnitTest extends TestCase
             ],
         ];
 
-        $this->assertEquals($out, $d->toArray());
+        $this->assertEquals($out, $t->toArray());
     }
 }

@@ -8,11 +8,42 @@ use Maknz\Slack\Object\Confirmation;
 abstract class Confirmable extends BlockElement
 {
     /**
+     * Action triggered when the element is interacted with.
+     *
+     * @var string
+     */
+    protected $action_id;
+
+    /**
      * Confirmation object.
      *
      * @var \Maknz\Slack\Object\Confirmation
      */
     protected $confirm;
+
+    /**
+     * Get the element's action identifier.
+     *
+     * @return string
+     */
+    public function getActionId()
+    {
+        return $this->action_id;
+    }
+
+    /**
+     * Set the element's action identifier.
+     *
+     * @param string $actionId
+     *
+     * @return $this
+     */
+    public function setActionId($actionId)
+    {
+        $this->action_id = $actionId;
+
+        return $this;
+    }
 
     /**
      * Get the confirmation object.

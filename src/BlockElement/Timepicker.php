@@ -3,14 +3,14 @@ namespace Maknz\Slack\BlockElement;
 
 use DateTime;
 
-class DatePicker extends Temporalpicker
+class Timepicker extends Temporalpicker
 {
     /**
      * Block type.
      *
      * @var string
      */
-    protected $type = 'datepicker';
+    protected $type = 'timepicker';
 
     /**
      * Internal attribute to property map.
@@ -20,7 +20,7 @@ class DatePicker extends Temporalpicker
     protected static $availableAttributes = [
         'action_id'    => 'action_id',
         'placeholder'  => 'placeholder',
-        'initial_date' => 'initial_value',
+        'initial_time' => 'initial_value',
         'confirm'      => 'confirm',
     ];
 
@@ -31,7 +31,7 @@ class DatePicker extends Temporalpicker
      */
     public function getInitialValueField()
     {
-        return 'initial_date';
+        return 'initial_time';
     }
 
     /**
@@ -41,28 +41,28 @@ class DatePicker extends Temporalpicker
      */
     public function getInitialValueFormat()
     {
-        return 'Y-m-d';
+        return 'H:i';
     }
 
     /**
-     * Get the initial date.
+     * Get the initial time.
      *
      * @return \DateTime
      */
-    public function getInitialDate()
+    public function getInitialTime()
     {
         return $this->getInitialValue();
     }
 
     /**
-     * Set the initial date.
+     * Set the initial time.
      *
-     * @param \DateTime $initialDate
+     * @param \DateTime $initialTime
      *
      * @return $this
      */
-    public function setInitialDate(DateTime $initialDate)
+    public function setInitialTime(DateTime $initialTime)
     {
-        return $this->setInitialValue($initialDate);
+        return $this->setInitialValue($initialTime);
     }
 }
