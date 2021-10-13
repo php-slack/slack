@@ -25,7 +25,7 @@ abstract class BlockElement extends Payload
         'image'               => ['Image',        ['section', 'context']],
         'multi_static_select' => ['MultiSelect',  ['section', 'input']],
         'overflow'            => ['Overflow',     ['section', 'actions']],
-        'plain_text_input'    => ['TextInput',    ['section', 'actions', 'input']],
+        'plain_text_input'    => ['TextInput',    ['input']],
         'radio_buttons'       => ['RadioButtons', ['section', 'actions', 'input']],
         'static_select'       => ['Select',       ['section', 'actions', 'input']],
 
