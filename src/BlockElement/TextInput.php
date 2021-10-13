@@ -1,6 +1,7 @@
 <?php
 namespace Maknz\Slack\BlockElement;
 
+use InvalidArgumentException;
 use Maknz\Slack\BlockElement;
 
 class TextInput extends BlockElement
@@ -55,17 +56,25 @@ class TextInput extends BlockElement
     protected $max_length;
 
     /**
+     * When the element should return its payload
+     *
+     * @var string[]
+     */
+    protected $dispatch_config;
+
+    /**
      * Internal attribute to property map.
      *
      * @var array
      */
     protected static $availableAttributes = [
-        'action_id'     => 'action_id',
-        'placeholder'   => 'placeholder',
-        'initial_value' => 'initial_value',
-        'multiline'     => 'multiline',
-        'min_length'    => 'min_length',
-        'max_length'    => 'max_length',
+        'action_id'              => 'action_id',
+        'placeholder'            => 'placeholder',
+        'initial_value'          => 'initial_value',
+        'multiline'              => 'multiline',
+        'min_length'             => 'min_length',
+        'max_length'             => 'max_length',
+        'dispatch_action_config' => 'dispatch_config',
     ];
 
     /**
@@ -215,6 +224,40 @@ class TextInput extends BlockElement
     }
 
     /**
+     * Get the input dispatch config.
+     *
+     * @return string[]
+     */
+    public function getDispatchConfig()
+    {
+        return $this->dispatch_config;
+    }
+
+    /**
+     * Set the input dispatch config.
+     *
+     * @param string[] $dispatchConfig
+     *
+     * @return $this
+     *
+     * @throws InvalidArgumentException
+     */
+    public function setDispatchConfig(array $dispatchConfig)
+    {
+        $validConfig = ['on_enter_pressed', 'on_character_entered'];
+
+        foreach ($dispatchConfig as $config) {
+            if (!in_array($config, $validConfig)) {
+                throw new InvalidArgumentException("Invalid dispatch config '$config'; must be one of: " . implode(',', $validConfig));
+            }
+        }
+
+        $this->dispatch_config = $dispatchConfig;
+
+        return $this;
+    }
+
+    /**
      * Convert the block to its array representation.
      *
      * @return array
@@ -244,6 +287,12 @@ class TextInput extends BlockElement
 
         if ($this->getMaxLength()) {
             $data['max_length'] = $this->getMaxLength();
+        }
+
+        if ($this->getDispatchConfig()) {
+            $data['dispatch_action_config'] = [
+                'trigger_actions_on' => $this->getDispatchConfig(),
+            ];
         }
 
         return $data;
