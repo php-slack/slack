@@ -1,0 +1,13 @@
+preset: laravel
+
+risky: false
+
+enabled:
+  - no_blank_lines_before_namespace
+  - not_operator_with_space
+
+disabled:
+  - single_blank_line_before_namespace
+  - cast_spaces
+  - laravel_phpdoc_alignment
+  - laravel_phpdoc_separation
