@@ -1,17 +1,17 @@
 <?php
 namespace Slack\Tests\BlockElement;
 
-use Maknz\Slack\BlockElement\MultiSelect;
+use Maknz\Slack\BlockElement\MultiStaticSelect;
 use Maknz\Slack\BlockElement\Text;
 use Slack\Tests\TestCase;
 
-class MultiSelectUnitTest extends TestCase
+class MultiStaticSelectUnitTest extends TestCase
 {
-    public function testMultiSelectFromArray()
+    public function testMultiStaticSelectFromArray()
     {
-        $m = new MultiSelect([
+        $m = new MultiStaticSelect([
             'placeholder' => 'Placeholder text',
-            'action_id'   => 'MultiSelect action',
+            'action_id'   => 'MultiStaticSelect action',
             'options'   => [[
                 'text'     => 'Option 1',
                 'value'    => 'option_1',
@@ -41,11 +41,11 @@ class MultiSelectUnitTest extends TestCase
         $this->assertSame('Option 1', $initial[0]->getText()->getText());
     }
 
-    public function testMultiSelectWithOptionGroups()
+    public function testMultiStaticSelectWithOptionGroups()
     {
-        $m = new MultiSelect([
+        $m = new MultiStaticSelect([
             'placeholder' => 'Placeholder text',
-            'action_id'   => 'MultiSelect action',
+            'action_id'   => 'MultiStaticSelect action',
             'option_groups' => [[
                 'label' => 'Group 1',
                 'options'   => [[
@@ -90,9 +90,9 @@ class MultiSelectUnitTest extends TestCase
 
     public function testAddOptionThenOptionGroup()
     {
-        $m = new MultiSelect([
+        $m = new MultiStaticSelect([
             'placeholder' => 'Placeholder text',
-            'action_id'   => 'MultiSelect action',
+            'action_id'   => 'MultiStaticSelect action',
         ]);
 
         $m->addOption([
@@ -115,9 +115,9 @@ class MultiSelectUnitTest extends TestCase
 
     public function testToArrayWithOptions()
     {
-        $m = new MultiSelect([
+        $m = new MultiStaticSelect([
             'placeholder' => 'Placeholder text',
-            'action_id'   => 'MultiSelect action',
+            'action_id'   => 'MultiStaticSelect action',
             'options'   => [[
                 'text'  => 'Option 1',
                 'value' => 'option_1',
@@ -141,7 +141,7 @@ class MultiSelectUnitTest extends TestCase
                 'text' => 'Placeholder text',
                 'emoji' => false,
             ],
-            'action_id'   => 'MultiSelect action',
+            'action_id'   => 'MultiStaticSelect action',
             'options'   => [[
                 'text'  => [
                     'type' => 'plain_text',
@@ -194,9 +194,9 @@ class MultiSelectUnitTest extends TestCase
 
     public function testToArrayWithOptionGroups()
     {
-        $m = new MultiSelect([
+        $m = new MultiStaticSelect([
             'placeholder' => 'Placeholder text',
-            'action_id'   => 'MultiSelect action',
+            'action_id'   => 'MultiStaticSelect action',
             'option_groups' => [[
                 'label' => 'Group 1',
                 'options'   => [[
@@ -233,7 +233,7 @@ class MultiSelectUnitTest extends TestCase
                 'text' => 'Placeholder text',
                 'emoji' => false,
             ],
-            'action_id'   => 'MultiSelect action',
+            'action_id'   => 'MultiStaticSelect action',
             'option_groups' => [[
                 'label' => [
                     'type' => Text::TYPE_PLAIN,

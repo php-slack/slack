@@ -3,7 +3,7 @@ namespace Slack\Tests\Block;
 
 use InvalidArgumentException;
 use Maknz\Slack\Block\Actions;
-use Maknz\Slack\BlockElement\Select;
+use Maknz\Slack\BlockElement\StaticSelect;
 use Maknz\Slack\BlockElement\Text;
 use Slack\Tests\TestCase;
 
@@ -36,7 +36,7 @@ class ActionsUnitTest extends TestCase
         $elements = $a->getElements();
         $this->assertSame(2, count($elements));
 
-        $this->assertInstanceOf(Select::class, $elements[0]);
+        $this->assertInstanceOf(StaticSelect::class, $elements[0]);
 
         $this->assertSame('OK', $elements[1]->getText()->getText());
     }
@@ -44,11 +44,11 @@ class ActionsUnitTest extends TestCase
     public function testInvalidElement()
     {
         $this->expectException(InvalidArgumentException::class);
-        $this->expectExceptionMessage('Block element Maknz\Slack\BlockElement\MultiSelect is not valid');
+        $this->expectExceptionMessage('Block element Maknz\Slack\BlockElement\MultiStaticSelect is not valid');
         $a = new Actions([
             'elements' => [[
                 'type' => 'multi_static_select',
-                'placeholder' => 'MultiSelect placeholder',
+                'placeholder' => 'MultiStaticSelect placeholder',
                 'options' => [[
                     'text'  => 'Option 1',
                     'value' => 'option_1',

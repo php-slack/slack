@@ -2,15 +2,15 @@
 namespace Slack\Tests\BlockElement;
 
 use InvalidArgumentException;
-use Maknz\Slack\BlockElement\Select;
+use Maknz\Slack\BlockElement\StaticSelect;
 use Maknz\Slack\BlockElement\Text;
 use Slack\Tests\TestCase;
 
-class SelectUnitTest extends TestCase
+class StaticSelectUnitTest extends TestCase
 {
-    public function testSelectFromArray()
+    public function testStaticSelectFromArray()
     {
-        $s = new Select([
+        $s = new StaticSelect([
             'placeholder' => 'Placeholder text',
             'action_id'   => 'Select action',
             'options'   => [[
@@ -36,9 +36,9 @@ class SelectUnitTest extends TestCase
         $this->assertSame('option_1', $options[0]->getValue());
     }
 
-    public function testSelectWithOptionGroups()
+    public function testStaticSelectWithOptionGroups()
     {
-        $s = new Select([
+        $s = new StaticSelect([
             'placeholder' => 'Placeholder text',
             'action_id'   => 'Select action',
             'option_groups' => [[
@@ -78,7 +78,7 @@ class SelectUnitTest extends TestCase
 
     public function testAddOptionThenOptionGroup()
     {
-        $s = new Select([
+        $s = new StaticSelect([
             'placeholder' => 'Placeholder text',
             'action_id'   => 'Select action',
         ]);
@@ -103,7 +103,7 @@ class SelectUnitTest extends TestCase
 
     public function testAddInvalidOption()
     {
-        $s = new Select([]);
+        $s = new StaticSelect([]);
 
         $this->expectException(InvalidArgumentException::class);
         $this->expectExceptionMessage('The option must be an instance of Maknz\\Slack\\Object\\Option or a keyed array');
@@ -113,7 +113,7 @@ class SelectUnitTest extends TestCase
 
     public function testAddInvalidOptionGroup()
     {
-        $s = new Select([]);
+        $s = new StaticSelect([]);
 
         $this->expectException(InvalidArgumentException::class);
         $this->expectExceptionMessage('The option group must be an instance of Maknz\\Slack\\Object\\OptionGroup or a keyed array');
@@ -126,7 +126,7 @@ class SelectUnitTest extends TestCase
         $this->expectException(InvalidArgumentException::class);
         $this->expectExceptionMessage('Only one option can be initially selected');
 
-        $s = new Select([
+        $s = new StaticSelect([
             'placeholder' => 'Placeholder text',
             'action_id'   => 'Select action',
             'options'   => [[
@@ -146,7 +146,7 @@ class SelectUnitTest extends TestCase
         $this->expectException(InvalidArgumentException::class);
         $this->expectExceptionMessage('Only one option can be initially selected');
 
-        $s = new Select([
+        $s = new StaticSelect([
             'placeholder' => 'Placeholder text',
             'action_id'   => 'Select action',
             'option_groups' => [[
@@ -175,14 +175,14 @@ class SelectUnitTest extends TestCase
 
     public function testNothingInitiallySelected()
     {
-        $s = new Select([]);
+        $s = new StaticSelect([]);
 
         $this->assertNull($s->getInitialOption());
     }
 
     public function testToArrayWithOptions()
     {
-        $s = new Select([
+        $s = new StaticSelect([
             'placeholder' => 'Placeholder text',
             'action_id'   => 'Select action',
             'options'   => [[
@@ -261,7 +261,7 @@ class SelectUnitTest extends TestCase
 
     public function testClearOptionsResetsSelected()
     {
-        $s = new Select([
+        $s = new StaticSelect([
             'placeholder' => 'Placeholder text',
             'action_id'   => 'Select action',
             'options'     => [[
@@ -281,7 +281,7 @@ class SelectUnitTest extends TestCase
 
     public function testClearOptionGroupsResetsSelected()
     {
-        $s = new Select([
+        $s = new StaticSelect([
             'placeholder' => 'Placeholder text',
             'action_id'   => 'Select action',
             'option_groups' => [[
@@ -304,7 +304,7 @@ class SelectUnitTest extends TestCase
 
     public function testClearAllOptionsResetsSelected()
     {
-        $s = new Select([
+        $s = new StaticSelect([
             'placeholder' => 'Placeholder text',
             'action_id'   => 'Select action',
             'option_groups' => [[
@@ -327,7 +327,7 @@ class SelectUnitTest extends TestCase
 
     public function testToArrayWithOptionGroups()
     {
-        $s = new Select([
+        $s = new StaticSelect([
             'placeholder' => 'Placeholder text',
             'action_id'   => 'Select action',
             'option_groups' => [[
