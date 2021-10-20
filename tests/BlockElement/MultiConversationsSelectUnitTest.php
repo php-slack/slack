@@ -16,7 +16,7 @@ class MultiConversationsSelectUnitTest extends TestCase
         ]);
 
         $this->assertSame(Text::TYPE_PLAIN, $s->getPlaceholder()->getType());
-        $this->assertNull($s->getInitialConversations());
+        $this->assertEmpty($s->getInitialConversations());
     }
 
     public function testSetInvalidConversations()
@@ -126,6 +126,26 @@ class MultiConversationsSelectUnitTest extends TestCase
                 'exclude_external_shared_channels' => false,
                 'exclude_bot_users'                => false,
             ],
+        ];
+
+        $this->assertEquals($out, $s->toArray());
+    }
+
+    public function testToArrayNoInitialConversations()
+    {
+        $s = new MultiConversationsSelect([
+            'placeholder' => 'Placeholder text',
+            'action_id'   => 'Select action',
+        ]);
+
+        $out = [
+            'type'        => 'multi_conversations_select',
+            'placeholder' => [
+                'type'  => Text::TYPE_PLAIN,
+                'text'  => 'Placeholder text',
+                'emoji' => false,
+            ],
+            'action_id'   => 'Select action',
         ];
 
         $this->assertEquals($out, $s->toArray());

@@ -20,7 +20,7 @@ class MultiConversationsSelect extends MultiDynamicSelect
      *
      * @var string[]
      */
-    protected $initial_conversations;
+    protected $initial_conversations = [];
 
     /**
      * Whether to default to the current conversation.

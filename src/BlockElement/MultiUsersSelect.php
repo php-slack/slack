@@ -17,7 +17,7 @@ class MultiUsersSelect extends MultiDynamicSelect
      *
      * @var string[]
      */
-    protected $initial_users;
+    protected $initial_users = [];
 
     /**
      * Internal attribute to property map.

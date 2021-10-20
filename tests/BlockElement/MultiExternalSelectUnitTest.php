@@ -32,7 +32,7 @@ class MultiExternalSelectUnitTest extends TestCase
     {
         $s = new MultiExternalSelect([]);
 
-        $this->assertNull($s->getInitialOptions());
+        $this->assertEmpty($s->getInitialOptions());
     }
 
     public function testSetInitialOptionClearsPrevious()
@@ -159,6 +159,26 @@ class MultiExternalSelectUnitTest extends TestCase
                 ],
             ],
             'max_selected_items' => 5,
+        ];
+
+        $this->assertEquals($out, $s->toArray());
+    }
+
+    public function testToArrayNoInitialOptions()
+    {
+        $s = new MultiExternalSelect([
+            'placeholder' => 'Placeholder text',
+            'action_id'   => 'Select action',
+        ]);
+
+        $out = [
+            'type'        => 'multi_external_select',
+            'placeholder' => [
+                'type' => Text::TYPE_PLAIN,
+                'text' => 'Placeholder text',
+                'emoji' => false,
+            ],
+            'action_id'   => 'Select action',
         ];
 
         $this->assertEquals($out, $s->toArray());

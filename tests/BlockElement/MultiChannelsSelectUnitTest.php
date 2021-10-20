@@ -16,7 +16,7 @@ class MultiChannelsSelectUnitTest extends TestCase
         ]);
 
         $this->assertSame(Text::TYPE_PLAIN, $s->getPlaceholder()->getType());
-        $this->assertNull($s->getInitialChannels());
+        $this->assertEmpty($s->getInitialChannels());
     }
 
     public function testSetInvalidChannels()
@@ -123,6 +123,26 @@ class MultiChannelsSelectUnitTest extends TestCase
                 ],
             ],
             'max_selected_items' => 2,
+        ];
+
+        $this->assertEquals($out, $s->toArray());
+    }
+
+    public function testToArrayNoInitialChannels()
+    {
+        $s = new MultiChannelsSelect([
+            'placeholder' => 'Placeholder text',
+            'action_id'   => 'Select action',
+        ]);
+
+        $out = [
+            'type'        => 'multi_channels_select',
+            'placeholder' => [
+                'type'  => Text::TYPE_PLAIN,
+                'text'  => 'Placeholder text',
+                'emoji' => false,
+            ],
+            'action_id'   => 'Select action',
         ];
 
         $this->assertEquals($out, $s->toArray());

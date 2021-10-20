@@ -16,7 +16,7 @@ class MultiUsersSelectUnitTest extends TestCase
         ]);
 
         $this->assertSame(Text::TYPE_PLAIN, $s->getPlaceholder()->getType());
-        $this->assertNull($s->getInitialUsers());
+        $this->assertEmpty($s->getInitialUsers());
     }
 
     public function testSetInvalidUsers()
@@ -123,6 +123,26 @@ class MultiUsersSelectUnitTest extends TestCase
                 ],
             ],
             'max_selected_items' => 2,
+        ];
+
+        $this->assertEquals($out, $s->toArray());
+    }
+
+    public function testToArrayNoInitialUsers()
+    {
+        $s = new MultiUsersSelect([
+            'placeholder' => 'Placeholder text',
+            'action_id'   => 'Select action',
+        ]);
+
+        $out = [
+            'type'        => 'multi_users_select',
+            'placeholder' => [
+                'type'  => Text::TYPE_PLAIN,
+                'text'  => 'Placeholder text',
+                'emoji' => false,
+            ],
+            'action_id'   => 'Select action',
         ];
 
         $this->assertEquals($out, $s->toArray());

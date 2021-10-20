@@ -25,7 +25,7 @@ class MultiExternalSelect extends MultiDynamicSelect
      *
      * @var \Maknz\Slack\Object\Option[]
      */
-    protected $initial_options;
+    protected $initial_options = [];
 
     /**
      * Internal attribute to property map.

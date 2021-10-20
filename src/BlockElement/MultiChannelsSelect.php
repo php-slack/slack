@@ -17,7 +17,7 @@ class MultiChannelsSelect extends MultiDynamicSelect
      *
      * @var string[]
      */
-    protected $initial_channels;
+    protected $initial_channels = [];
 
     /**
      * Internal attribute to property map.
