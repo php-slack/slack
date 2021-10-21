@@ -1,0 +1,93 @@
+# https://help.github.com/en/categories/automating-your-workflow-with-github-actions
+
+on:
+  - pull_request
+  - push
+
+name: CI
+
+jobs:
+  coding-guidelines:
+    name: Coding Guidelines
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Install PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: 8.0
+          extensions: :apcu, :imagick
+          coverage: none
+          tools: none
+
+      - name: Run friendsofphp/php-cs-fixer
+        run: ./tools/php-cs-fixer fix --dry-run --show-progress=dots --using-cache=no --verbose
+
+  type-checker:
+    name: Type Checker
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Install PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: 8.0
+          extensions: :apcu, :imagick
+          coverage: none
+          tools: none
+
+      - name: Update dependencies with composer
+        run: ./tools/composer update --no-interaction --no-ansi --no-progress
+
+      - name: Run vimeo/psalm
+        run: ./tools/psalm --config=.psalm/config.xml --no-progress --shepherd --show-info=false --stats
+
+  tests:
+    name: Tests
+
+    runs-on: ubuntu-latest
+
+    env:
+      PHP_EXTENSIONS: dom, json, libxml, mbstring, pdo_sqlite, soap, xml, xmlwriter, :apcu, :imagick
+      PHP_INI_VALUES: memory_limit=-1, assert.exception=1, zend.assertions=1, error_reporting=-1, log_errors_max_len=0, display_errors=On
+
+    strategy:
+      fail-fast: false
+      matrix:
+        php-version:
+          - "7.3"
+          - "7.4"
+          - "8.0"
+          - "8.1"
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Install PHP with extensions
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php-version }}
+          coverage: xdebug3
+          extensions: ${{ env.PHP_EXTENSIONS }}
+          ini-values: ${{ env.PHP_INI_VALUES }}
+          tools: none
+
+      - name: Install composer dependencies
+        run: php ./tools/composer update --no-ansi --no-interaction --no-progress
+
+      - name: Run tests with phpunit/phpunit
+        run: vendor/bin/phpunit --coverage-clover=coverage.xml
+
+      - name: Send code coverage report to Codecov.io
+        uses: codecov/codecov-action@v1
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
