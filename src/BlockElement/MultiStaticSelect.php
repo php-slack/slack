@@ -1,8 +1,8 @@
 <?php
 namespace Maknz\Slack\BlockElement;
 
-use Maknz\Slack\MaxItemsTrait;
 use Maknz\Slack\CompositionObject\Option;
+use Maknz\Slack\MaxItemsTrait;
 
 class MultiStaticSelect extends AbstractStaticSelect
 {
