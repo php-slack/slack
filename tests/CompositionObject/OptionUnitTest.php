@@ -1,5 +1,5 @@
 <?php
-namespace Slack\Tests\Object;
+namespace Slack\Tests\CompositionObject;
 
 use Maknz\Slack\BlockElement\Text;
 use Maknz\Slack\CompositionObject\Option;
