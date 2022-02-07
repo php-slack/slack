@@ -57,7 +57,7 @@ class ConversationsSelectUnitTest extends TestCase
         $s = new ConversationsSelect([]);
 
         $this->expectException(InvalidArgumentException::class);
-        $this->expectExceptionMessage('The filter must be an instance of Maknz\\Slack\\Object\\Filter or a keyed array');
+        $this->expectExceptionMessage('The filter must be an instance of Maknz\\Slack\\CompositionObject\\Filter or a keyed array');
 
         $s->setFilter('Invalid');
     }

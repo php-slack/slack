@@ -28,7 +28,7 @@ class ButtonUnitTest extends TestCase
         $b = new Button([]);
 
         $this->expectException(InvalidArgumentException::class);
-        $this->expectExceptionMessage('Confirm must be a keyed array or Maknz\\Slack\\Object\\Confirmation object');
+        $this->expectExceptionMessage('Confirm must be a keyed array or Maknz\\Slack\\CompositionObject\\Confirmation object');
 
         $b->setConfirm('Invalid');
     }

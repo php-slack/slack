@@ -23,7 +23,7 @@ class MultiExternalSelectUnitTest extends TestCase
         $s = new MultiExternalSelect([]);
 
         $this->expectException(InvalidArgumentException::class);
-        $this->expectExceptionMessage('The initial option must be an instance of Maknz\\Slack\\Object\\Option or a keyed array');
+        $this->expectExceptionMessage('The initial option must be an instance of Maknz\\Slack\\CompositionObject\\Option or a keyed array');
 
         $s->setInitialOptions(['Invalid']);
     }

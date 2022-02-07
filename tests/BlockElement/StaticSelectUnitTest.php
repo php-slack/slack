@@ -106,7 +106,7 @@ class StaticSelectUnitTest extends TestCase
         $s = new StaticSelect([]);
 
         $this->expectException(InvalidArgumentException::class);
-        $this->expectExceptionMessage('The option must be an instance of Maknz\\Slack\\Object\\Option or a keyed array');
+        $this->expectExceptionMessage('The option must be an instance of Maknz\\Slack\\CompositionObject\\Option or a keyed array');
 
         $s->addOption('Invalid');
     }
@@ -116,7 +116,7 @@ class StaticSelectUnitTest extends TestCase
         $s = new StaticSelect([]);
 
         $this->expectException(InvalidArgumentException::class);
-        $this->expectExceptionMessage('The option group must be an instance of Maknz\\Slack\\Object\\OptionGroup or a keyed array');
+        $this->expectExceptionMessage('The option group must be an instance of Maknz\\Slack\\CompositionObject\\OptionGroup or a keyed array');
 
         $s->addOptionGroup('Invalid');
     }
