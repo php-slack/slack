@@ -2,21 +2,21 @@
 namespace Maknz\Slack;
 
 use InvalidArgumentException;
-use Maknz\Slack\Object\Option;
+use Maknz\Slack\CompositionObject\Option;
 
 trait OptionsTrait
 {
     /**
      * Options available within the block.
      *
-     * @var \Maknz\Slack\Object\Option[]
+     * @var \Maknz\Slack\CompositionObject\Option[]
      */
     protected $options = [];
 
     /**
      * Get options available within the block.
      *
-     * @return \Maknz\Slack\Object\Option[]
+     * @return \Maknz\Slack\CompositionObject\Option[]
      */
     public function getOptions()
     {

@@ -2,8 +2,8 @@
 namespace Maknz\Slack\BlockElement;
 
 use InvalidArgumentException;
-use Maknz\Slack\Object\Option;
-use Maknz\Slack\Object\OptionGroup;
+use Maknz\Slack\CompositionObject\Option;
+use Maknz\Slack\CompositionObject\OptionGroup;
 
 class StaticSelect extends AbstractStaticSelect
 {
@@ -117,7 +117,7 @@ class StaticSelect extends AbstractStaticSelect
     /**
      * Get the intially selected option.
      *
-     * @return \Maknz\Slack\Object\Option
+     * @return \Maknz\Slack\CompositionObject\Option
      */
     public function getInitialOption()
     {

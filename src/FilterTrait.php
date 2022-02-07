@@ -2,21 +2,21 @@
 namespace Maknz\Slack;
 
 use InvalidArgumentException;
-use Maknz\Slack\Object\Filter;
+use Maknz\Slack\CompositionObject\Filter;
 
 trait FilterTrait
 {
     /**
      * A filter for the list of options.
      *
-     * @var \Maknz\Slack\Object\Filter
+     * @var \Maknz\Slack\CompositionObject\Filter
      */
     protected $filter;
 
     /**
      * Get the filter for the list of options.
      *
-     * @var \Maknz\Slack\Object\Filter
+     * @var \Maknz\Slack\CompositionObject\Filter
      */
     public function getFilter()
     {

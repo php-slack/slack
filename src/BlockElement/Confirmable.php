@@ -3,7 +3,7 @@ namespace Maknz\Slack\BlockElement;
 
 use InvalidArgumentException;
 use Maknz\Slack\BlockElement;
-use Maknz\Slack\Object\Confirmation;
+use Maknz\Slack\CompositionObject\Confirmation;
 
 abstract class Confirmable extends BlockElement
 {
@@ -17,7 +17,7 @@ abstract class Confirmable extends BlockElement
     /**
      * Confirmation object.
      *
-     * @var \Maknz\Slack\Object\Confirmation
+     * @var \Maknz\Slack\CompositionObject\Confirmation
      */
     protected $confirm;
 
@@ -48,7 +48,7 @@ abstract class Confirmable extends BlockElement
     /**
      * Get the confirmation object.
      *
-     * @return \Maknz\Slack\Object\Confirmation
+     * @return \Maknz\Slack\CompositionObject\Confirmation
      */
     public function getConfirm()
     {

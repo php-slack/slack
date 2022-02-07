@@ -2,7 +2,7 @@
 namespace Maknz\Slack\BlockElement;
 
 use InvalidArgumentException;
-use Maknz\Slack\Object\Option;
+use Maknz\Slack\CompositionObject\Option;
 
 class ExternalSelect extends AbstractDynamicSelect
 {
@@ -23,7 +23,7 @@ class ExternalSelect extends AbstractDynamicSelect
     /**
      * Initially selected option.
      *
-     * @var \Maknz\Slack\Object\Option
+     * @var \Maknz\Slack\CompositionObject\Option
      */
     protected $initial_option;
 
@@ -73,7 +73,7 @@ class ExternalSelect extends AbstractDynamicSelect
     /**
      * Get the initially selected option.
      *
-     * @return \Maknz\Slack\Object\Option
+     * @return \Maknz\Slack\CompositionObject\Option
      */
     public function getInitialOption()
     {

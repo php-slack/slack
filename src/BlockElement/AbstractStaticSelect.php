@@ -2,7 +2,7 @@
 namespace Maknz\Slack\BlockElement;
 
 use InvalidArgumentException;
-use Maknz\Slack\Object\OptionGroup;
+use Maknz\Slack\CompositionObject\OptionGroup;
 use Maknz\Slack\PlaceholderTrait;
 
 abstract class AbstractStaticSelect extends Options
@@ -12,7 +12,7 @@ abstract class AbstractStaticSelect extends Options
     /**
      * Select option groups.
      *
-     * @var \Maknz\Slack\Object\OptionGroup[]
+     * @var \Maknz\Slack\CompositionObject\OptionGroup[]
      */
     protected $option_groups = [];
 
@@ -52,7 +52,7 @@ abstract class AbstractStaticSelect extends Options
     /**
      * Get the option groups.
      *
-     * @return \Maknz\Slack\Object\OptionGroup[]
+     * @return \Maknz\Slack\CompositionObject\OptionGroup[]
      */
     public function getOptionGroups()
     {

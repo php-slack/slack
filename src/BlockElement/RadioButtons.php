@@ -2,7 +2,7 @@
 namespace Maknz\Slack\BlockElement;
 
 use InvalidArgumentException;
-use Maknz\Slack\Object\Option;
+use Maknz\Slack\CompositionObject\Option;
 
 class RadioButtons extends Options
 {
@@ -34,7 +34,7 @@ class RadioButtons extends Options
     /**
      * Get the intially selected option.
      *
-     * @return \Maknz\Slack\Object\Option|null
+     * @return \Maknz\Slack\CompositionObject\Option|null
      */
     public function getInitialOption()
     {

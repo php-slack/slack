@@ -2,7 +2,7 @@
 namespace Maknz\Slack\BlockElement;
 
 use InvalidArgumentException;
-use Maknz\Slack\Object\Option;
+use Maknz\Slack\CompositionObject\Option;
 
 class MultiExternalSelect extends MultiDynamicSelect
 {
@@ -23,7 +23,7 @@ class MultiExternalSelect extends MultiDynamicSelect
     /**
      * Initially selected options.
      *
-     * @var \Maknz\Slack\Object\Option[]
+     * @var \Maknz\Slack\CompositionObject\Option[]
      */
     protected $initial_options = [];
 
@@ -74,7 +74,7 @@ class MultiExternalSelect extends MultiDynamicSelect
     /**
      * Get the initially selected options.
      *
-     * @return \Maknz\Slack\Object\Option[]
+     * @return \Maknz\Slack\CompositionObject\Option[]
      */
     public function getInitialOptions()
     {

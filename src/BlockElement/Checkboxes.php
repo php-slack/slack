@@ -1,7 +1,7 @@
 <?php
 namespace Maknz\Slack\BlockElement;
 
-use Maknz\Slack\Object\Option;
+use Maknz\Slack\CompositionObject\Option;
 
 class Checkboxes extends Options
 {
@@ -26,7 +26,7 @@ class Checkboxes extends Options
     /**
      * Get the intially selected options.
      *
-     * @return \Maknz\Slack\Object\Option[]
+     * @return \Maknz\Slack\CompositionObject\Option[]
      */
     public function getInitialOptions()
     {
