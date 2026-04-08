@@ -38,5 +38,8 @@
             "dev-master": "2.x-dev"
         }
     },
-    "minimum-stability": "stable"
+    "minimum-stability": "stable",
+    "replace": {
+        "maknz/slack": "<=1.7.0"
+    }
 }
