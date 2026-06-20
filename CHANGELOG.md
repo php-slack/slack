@@ -1,5 +1,8 @@
 # Change Log
 
+## [2026.06](https://github.com/php-slack/slack/releases/tag/2026.06)
+ - add alek13/slack as a replacement for maknz/slack in composer.json
+
 ## [2.3.0](https://github.com/php-slack/slack/releases/tag/2.3.0)
  - Support PHP 8.1, 8.2, 8.3, 8.4
    - Arguments with a null default must be nullable
