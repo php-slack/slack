@@ -1,0 +1,54 @@
+name: Php Unit Tests
+
+on:
+  push:
+    branches: [ "2.x", "master" ]
+  pull_request:
+    branches: [ "2.x", "master" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    strategy:
+      fail-fast: false
+      matrix:
+        php:
+          - 7.1
+          - 7.2
+          - 7.3
+          - 7.4
+          - 8.0
+          - 8.1
+          - 8.2
+          - 8.3
+          - 8.4
+
+    name: PHP ${{ matrix.php }}
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v7
+
+    - name: Setup PHP, extensions & tools
+      uses: shivammathur/setup-php@v2
+      with:
+        php-version: ${{ matrix.php }}
+        extensions: mbstring
+        tools: composer:v2
+        coverage: xdebug
+
+    - name: Install Dependencies
+      run: composer install --prefer-dist --no-progress --no-interaction
+
+    - name: Run Tests
+      run: vendor/bin/phpunit --coverage-clover coverage.xml
+
+    - name: Code Coverage Summary Report
+      uses: saschanowak/CloverCodeCoverageSummary@1.1.1
+      with:
+        filename: coverage.xml
+    - name: 'Add Code Coverage to Job Summary'
+      run: |
+        cat code-coverage-summary.md >> $GITHUB_STEP_SUMMARY
+        cat code-coverage-details.md >> $GITHUB_STEP_SUMMARY
