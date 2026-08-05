@@ -18,13 +18,17 @@
         </testsuite>
     </testsuites>
 
+    <!-- For PHPUnit 9 and below (PHP 7.1 - 8.0) -->
     <filter>
         <whitelist>
-            <directory>./</directory>
-            <exclude>
-                <directory>./tests</directory>
-                <directory>./vendor</directory>
-            </exclude>
+            <directory>./src</directory>
         </whitelist>
     </filter>
+
+    <!-- For PHPUnit 10+ (PHP 8.1+) -->
+    <source>
+        <include>
+            <directory>./src</directory>
+        </include>
+    </source>
 </phpunit>
