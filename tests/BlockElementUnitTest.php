@@ -9,6 +9,7 @@ class BlockElementUnitTest extends TestCase
     /**
      * @dataProvider factoryArrayProvider
      */
+    #[\PHPUnit\Framework\Attributes\DataProvider('factoryArrayProvider')]
     public function testFactoryWithArray($type, $class)
     {
         $element = BlockElement::factory([
