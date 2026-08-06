@@ -98,9 +98,9 @@ jobs:
       run: composer require "guzzlehttp/guzzle:${{ matrix.guzzle }}" --no-update --no-interaction
 
     - name: Install Dependencies
-      env:
-        COMPOSER_NO_AUDIT: 1
-      run: composer install --prefer-dist --no-progress --no-interaction
+      run: |
+        composer config audit.block-insecure false 2> /dev/null || true
+        composer install --prefer-dist --no-progress --no-interaction
 
     - name: Run Tests
       run: |
