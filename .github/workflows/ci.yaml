@@ -13,19 +13,74 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        php:
-          - 7.1
-          - 7.2
-          - 7.3
-          - 7.4
-          - 8.0
-          - 8.1
-          - 8.2
-          - 8.3
-          - 8.4
-          - 8.5
+        include:
+          # --- PHP 7.1 ---
+          - php: 7.1
+            guzzle: "^4.0"
+          - php: 7.1
+            guzzle: "^5.0"
+          - php: 7.1
+            guzzle: "^6.0"
 
-    name: PHP ${{ matrix.php }}
+          # --- PHP 7.2 ---
+          - php: 7.2
+            guzzle: "^4.0"
+          - php: 7.2
+            guzzle: "^5.0"
+          - php: 7.2
+            guzzle: "^6.0"
+          - php: 7.2
+            guzzle: "^7.0"
+
+          # --- PHP 7.3 ---
+          - php: 7.3
+            guzzle: "^4.0"
+          - php: 7.3
+            guzzle: "^5.0"
+          - php: 7.3
+            guzzle: "^6.0"
+          - php: 7.3
+            guzzle: "^7.0"
+
+          # --- PHP 7.4 ---
+          - php: 7.4
+            guzzle: "^4.0"
+          - php: 7.4
+            guzzle: "^5.0"
+          - php: 7.4
+            guzzle: "^6.0"
+          - php: 7.4
+            guzzle: "^7.0"
+
+          # --- PHP 8.0 ---
+          - php: 8.0
+            guzzle: "^6.0"
+          - php: 8.0
+            guzzle: "^7.0"
+
+          # --- PHP 8.1 ---
+          - php: 8.1
+            guzzle: "^6.0"
+          - php: 8.1
+            guzzle: "^7.0"
+
+          # --- PHP 8.2 ---
+          - php: 8.2
+            guzzle: "^7.0"
+
+          # --- PHP 8.3 ---
+          - php: 8.3
+            guzzle: "^7.0"
+
+          # --- PHP 8.4 ---
+          - php: 8.4
+            guzzle: "^7.0"
+
+          # --- PHP 8.5 ---
+          - php: 8.5
+            guzzle: "^7.0"
+
+    name: PHP ${{ matrix.php }}, Guzzle ${{ matrix.guzzle }}
 
     steps:
     - name: Checkout code
@@ -38,6 +93,9 @@ jobs:
         extensions: mbstring
         tools: composer:v2
         coverage: xdebug
+
+    - name: Configure Guzzle Version
+      run: composer require "guzzlehttp/guzzle:${{ matrix.guzzle }}" --no-update --no-interaction
 
     - name: Install Dependencies
       run: composer install --prefer-dist --no-progress --no-interaction
