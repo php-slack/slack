@@ -2,12 +2,8 @@
 <phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/9.3/phpunit.xsd"
          backupGlobals="false"
-         backupStaticAttributes="false"
          bootstrap="vendor/autoload.php"
          colors="true"
-         convertErrorsToExceptions="true"
-         convertNoticesToExceptions="true"
-         convertWarningsToExceptions="true"
          processIsolation="false"
          stopOnFailure="false"
 >
@@ -18,10 +14,10 @@
         </testsuite>
     </testsuites>
 
-    <!-- For PHPUnit 9 and below (PHP 7.1 - 8.0) -->
-    <filter>
-        <whitelist>
+    <!-- For PHPUnit 10+ (PHP 8.1+) -->
+    <source>
+        <include>
             <directory>./src</directory>
-        </whitelist>
-    </filter>
+        </include>
+    </source>
 </phpunit>
