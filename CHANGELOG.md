@@ -1,5 +1,21 @@
 # Change Log
 
+## [2.4.0](https://github.com/php-slack/slack/releases/tag/2.4.0)
+ - Fix PhpUnit tests warning.
+ - Add PhpUnit tests GitHub Action.
+ - Fix tests: Exclude abstract `TestCase` class in `phpunit.xml.dist`.
+ - Fix tests: new `<source>` section for PHPUnit 10+ (PHP 8.1+).
+ - Fix tests: Separate config for PhpUnit 10+.
+ - Fix tests: Support `DataProvider` as PHP attribute for PhpUnit 12+.
+ - CI: Add tests launch on PHP `8.5`.
+ - CI: Tests: Add full matrix of PHP & Guzzle to execute tests on.
+ - CI: Tests: no audit while install dependencies.
+ - CI: Tests: fix no audit while install dependencies.
+ - CI: Tests: empty line to rerun jobs after GitHub Actions outage.
+ - CI: Tests: add Guzzle `^8.0` to matrix.
+ - CI: remove Travis integration (we migrated to GH Actions).
+ - Add Guzzle `^8.0` support. Closes #88. Replaces #89.
+
 ## [2026.06](https://github.com/php-slack/slack/releases/tag/2026.06)
  - add alek13/slack as a replacement for maknz/slack in composer.json
 
