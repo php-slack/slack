@@ -52,34 +52,48 @@ jobs:
             guzzle: "^6.0"
           - php: 7.4
             guzzle: "^7.0"
+          - php: 7.4
+            guzzle: "^8.0"
 
           # --- PHP 8.0 ---
           - php: 8.0
             guzzle: "^6.0"
           - php: 8.0
             guzzle: "^7.0"
+          - php: 8.0
+            guzzle: "^8.0"
 
           # --- PHP 8.1 ---
           - php: 8.1
             guzzle: "^6.0"
           - php: 8.1
             guzzle: "^7.0"
+          - php: 8.1
+            guzzle: "^8.0"
 
           # --- PHP 8.2 ---
           - php: 8.2
             guzzle: "^7.0"
+          - php: 8.2
+            guzzle: "^8.0"
 
           # --- PHP 8.3 ---
           - php: 8.3
             guzzle: "^7.0"
+          - php: 8.3
+            guzzle: "^8.0"
 
           # --- PHP 8.4 ---
           - php: 8.4
             guzzle: "^7.0"
+          - php: 8.4
+            guzzle: "^8.0"
 
           # --- PHP 8.5 ---
           - php: 8.5
             guzzle: "^7.0"
+          - php: 8.5
+            guzzle: "^8.0"
 
     name: PHP ${{ matrix.php }}, Guzzle ${{ matrix.guzzle }}
 
