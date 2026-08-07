@@ -1,6 +1,6 @@
 # Slack for PHP
 
-[![Build Status](https://travis-ci.org/php-slack/slack.svg?branch=master)](https://travis-ci.org/php-slack/slack)
+[![Php Unit Tests](https://github.com/php-slack/slack/actions/workflows/ci.yaml/badge.svg)](https://github.com/php-slack/slack/actions/workflows/ci.yaml)
 [![Code Coverage](https://scrutinizer-ci.com/g/php-slack/slack/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/php-slack/slack/?branch=master)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/php-slack/slack/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/php-slack/slack/?branch=master)
 [![StyleCI](https://styleci.io/repos/116497800/shield)](https://styleci.io/repos/116497800) |
